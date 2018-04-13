@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp"><!--引用模块的名字-->
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="angular.min.js">
+		
+	</script>
+	<script>
+		
+	/*	var m1=angular.module('myApp',[]);全局改模块的方式创建模块,很多个myapp，[]=>你想依赖的模块,不依赖为空数组
+		m1.controller('Aaa',function($scope){开发可以，但线上是压缩版本，局部作用域找不到,入$scope=>$s
+			$scope.name="hello";			
+		});
+		m1.controller('Bbb',function($scope){
+			$scope.name="hi";			
+		});*/
+		//改写成线上防止压缩找不到$scope;
+		var m1 =angular.module('myApp',[]);
+				m1.controller('Aaa',['$scope',function($scope){$scope.name="hello"}]);
+				m1.controller('Bbb',['$scope',function($scope){$scope.name="hi"}]);
+	</script>
+	<body>
+		<div ng-controller="Aaa">
+			<p>{{name}}</p>
+		</div>
+		<div ng-controller="Bbb">
+	
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>
