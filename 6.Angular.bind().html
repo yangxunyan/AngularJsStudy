@@ -1,9 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript">
+			//angular.bind():>$.proxy():改this 指向
+			/*function show(n1,n2){
+				alert(n1);
+				alert(n2);
+				alert(this);
+			}
+			angular.bind(document,show,3)(4);3，4传参*/
+			
+			var a={
+				name:'hello'
+			}
+			var b={
+				age:'20'
+			}
+			var c=angular.copy(a);/*copy  a的值*/
+			var c=angular.copy(a,b);/*copy  a的值覆盖了b*/
+			angular.extend();   //对象继承(复制)
+			var c=angular.extend(b,a);// b继承了 a的属性;
+			console.log(b);
+		</script>
+		
 	</head>
 	<body>
+		<div ng-controller="Aaa">
+			
+		</div>
 	</body>
 </html>
