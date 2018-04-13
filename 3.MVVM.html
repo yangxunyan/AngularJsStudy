@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="angular.min.js">
+		
+	</script>
+	<script>
+		function Aaa($scope){
+			$scope.name="hello";
+			
+			
+		}
+	</script>
+	<body>
+		<div ng-controller="Aaa">
+			<input type="text" ng-model="name"/><!--输入框绑定数据name  MVVM-->
+			<p>{{name}}</p>
+		</div>
+	</body>
+</html>

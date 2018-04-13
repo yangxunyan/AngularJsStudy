@@ -5,14 +5,27 @@
 		<title></title>
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript">
-			function Aaa($scope){
-				$scope.name="hello";
+			function Aaa($scope,$rootScope){//服务一种特殊的依赖注入小概念
+				$scope.name="hello";//moder 数据列$scope 对象是一种作用域只会在Aaa函数起作用
+				$rootScope.age='20';//$rootScope 全局作用域相对于整个页面的
+			}
+			function Bbb($scope){
+				$scope.name="hi";//moder 数据列
+				//$scope 对象是一种作用域只会在Aaa函数起作用
 			}
 		</script>
 	</head>
 	<body>
-		<div ng-controller="Aaa">
-			<p>{{name}}</p><!--模板系统：通过双大括号里面的值是个变量-->
+		<div ng-controller="Aaa"><!--Control  控制(执行函数)分离  该标签内部起作用-->
+			<p>{{name}}</p><!--View  视图模板系统：通过双大括号里面的值是个变量-->
+				
 		</div>
+		<div ng-controller="Bbb">
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+		</div>
+		
+		
+		<p>{{age}}</p><!--作用域Aaa外部不起作用-->
 	</body>
 </html>
