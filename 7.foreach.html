@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script>
+			var values=['a','b','c'];
+			var result=[]
+			angular.forEach(values,function(value,i){
+				console.log(value);
+				console.log(i);
+				this.push(value+i);
+			},result);
+			console.log(result);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
