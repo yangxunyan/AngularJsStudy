@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js"></script>
+		<script type="text/javascript">
+			var m1=angular.module('myApp',[]);
+			m1.controller('Ann',['$scope',function($scope){
+				/*$scope.name="424324324.8888333";*/
+				/*$scope.name="hello";*/
+				/*$scope.name={
+					"name":"xiaoming",
+					"age":"20"
+				}*/
+				/*$scope.name="hello";*/
+				/*$scope.arr=['b','c','d','e'];*/
+				/*$scope.name='232323232';*/
+				/*$scope.arr=[
+					{color:"red",age:"20"},
+					{color:"yellow",age:"30"},
+					{color:"black",age:"40"},
+					{color:"green",age:"50"},
+				]
+				
+				
+				}]);*/
+		</script>
+	</head>
+	<body>
+		<div ng-controller='Ann'>
+			<!--<p>{{name|currency:"￥"}}</p>-->
+			<!--<p>{{name|number:2}}</p>传参保留小数点-->
+			<!--<p>{{name|uppercase}}</p>uppercase大写,lowercase小写   -->
+			 <!--<pre>{{name  | json}}</pre> pre会识别空格和换行操作-->
+			 <!--<p>{{name | limitTo:2}}</p> limitTo截取字符串-->
+			 <!--<p>{{arr | limitTo:2}}</p>   截取数组 ["b","c"]-->
+			 <!--<p>{{name | date:'yyyy'}}</p> 数字转换成日期-->
+			 <!--<pre>{{arr | orderBy:'color'| json}}</pre>-->
+		
+		
+		</div>
+	</body>
+</html>
