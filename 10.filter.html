@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="angular.min.js">
+			
+		</script>
+		<script type="text/javascript">
+			var m1 =angular.module('myApp',[]);
+			m1.filter('firstUpper',function(){
+				return function(str){
+				
+					return str.charAt(0).toUpperCase()+str.substring(1);}
+				
+			});
+			m1.controller('Aaa',['$scope','$filter',function($scope,$filter){//服务通过依赖进行注入得到服务
+				
+				/*$scope.name=$filter('uppercase')('hello');*/
+				/*$scope.name=$filter('limitTo')('hello',2); 后面传参*/
+				/*$scope.name=$filter('number')('22232323.2222',1);*/
+				/*$scope.name=$filter('date')('223245466');*/
+				$scope.name='hello';
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			<p>{{name | firstUpper}}</p>
+		</div>
+	</body>
+</html>

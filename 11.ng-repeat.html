@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="angular.min.js">
+			
+		</script>
+		<script type="text/javascript">
+			var m1 =angular.module('myApp',[]);
+	
+			m1.controller('Aaa',['$scope','$filter',function($scope,$filter){//服务通过依赖进行注入得到服务
+				var oriArr=[
+					{name:"red",age:"10"},
+					{name:"yellow",age:"20"},
+					{name:"green",age:"30"},
+					{name:"black",age:"40"}
+				];
+				$scope.dataList=oriArr;
+			$scope.fnSort=function(arg){
+				arguments.callee['fnSort'+arg]=!arguments.callee['fnSort'+arg];//'fnSort'+arg避免与系统自带的属性有冲突
+				$scope.dataList=$filter('orderBy')($scope.dataList,arg,true,arguments.callee['fnSort'+arg]);
+			};
+			$scope.fnFilter=function(){
+				
+				$scope.dataList=$filter('filter')(oriArr,$scope.filterVal);
+			}
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			<input type="text" ng-model="filterVal"/><input type="button"value="搜索" ng-click="fnFilter()" />
+			<table border="1">
+				<tr>
+					<th ng-click="fnSort('name')">姓名</th>
+					<th ng-click="fnSort('age')">年龄</th>
+				</tr>
+				<tr ng-repeat="data in dataList">
+					<td>{{data.name}}</td>
+					<td>{{data.age}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
