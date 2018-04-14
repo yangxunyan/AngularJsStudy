@@ -8,7 +8,7 @@
 		</script>
 		<script type="text/javascript">
 			var m1 =angular.module('myApp',[]);
-			m1.filter('firstUpper',function(){
+			m1.filter('firstUpper',function(){//filter自定义过滤
 				return function(str){
 				
 					return str.charAt(0).toUpperCase()+str.substring(1);}

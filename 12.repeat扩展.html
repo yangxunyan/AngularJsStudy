@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active1{background:red;}
+			.active2{background:blue;}
+		</style>
+		<script type="text/javascript" src="angular.min.js">
+			
+		</script>
+		<script type="text/javascript">
+			var m1 =angular.module('myApp',[]);
+		
+			m1.controller('Aaa',['$scope',function($scope){//服务通过依赖进行注入得到服务
+				$scope.dataList=[
+					'aaaaa','bbbb','ccccccc'
+				]
+				
+			}])
+			//$index:属性的下标
+			//$first:第一项为true
+			//$last:最后一项为true
+			//$middle：中间项
+			//$even:偶数
+			//$odd:奇数
+			//隔行换色应用
+		</script>
+	</head>
+	<body>
+		<div ng-controller="Aaa">
+			<ul>
+				<!--<li ng-repeat="data in dataList">{{$odd}}</li>-->
+				<li ng-repeat="data in dataList" class="{{$even?'active1':'active2'}}">{{data}}</li>
+			</ul>
+		</div>
+	</body>
+</html>
